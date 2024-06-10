@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     environment {
         // 主仓名
         mainRepoName = "ComponentStarry"
@@ -111,7 +111,7 @@ pipeline {
 }
 
 def repos() {
-  return ["$currentRepoName", "$mainRepoName"]
+  return ["$mainRepoName"]
 }
 
 def repoJobs() {
