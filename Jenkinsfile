@@ -126,8 +126,8 @@ def repoJobs() {
         stage(repo + "编译测试"){
              steps {
                 script {
-		   catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                          withEnv(["repoName=$repo"]) { // it can override any env variable
+		        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                           withEnv(["repoName=$repo"]) { // it can override any env variable
                                 echo "repoName = ${repoName}"
                                 echo "$repo 编译测试"
                                 sh 'printenv'
@@ -140,7 +140,7 @@ def repoJobs() {
                                 }
                                 echo "--------------------------------------------$repo test end  ------------------------------------------------"
                           }
-		   }
+		       }
                }
 	   }
         }
