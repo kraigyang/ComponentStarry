@@ -124,7 +124,6 @@ def repoJobs() {
            sh "rm -rf  $repo; git clone $GITHUB_URL_PREFIX$repo$GITHUB_URL_SUFFIX; echo `pwd`;"
         }
         stage(repo + "编译测试"){
-             steps {
                 script {
 		        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                            withEnv(["repoName=$repo"]) { // it can override any env variable
@@ -142,7 +141,6 @@ def repoJobs() {
                           }
 		       }
                }
-	   }
         }
         stage(repo + "报告生成"){
             withEnv(["repoName=$repo"]) { // it can override any env variable
